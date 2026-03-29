@@ -1,20 +1,23 @@
-import java.util.Stack;
+import java.util.*;
 public class Main {
     public static void main(String[] args){
 
         Stack<String> stack = new Stack<String>();
 
-        // System.out.println(stack.empty());
+        //Priority Queue = A FIFO data structure that service elements
+        //       with the highest priorities first
+        //        before elements with lower priority
 
-        stack.push("freefire");
-        stack.push("Templerun");
-        stack.push("minimilittia");
-        stack.push("GTA");
-        stack.push("Carrace");
+        Queue<String> queue = new PriorityQueue<>(Collections.reverseOrder());
 
-        String pop = stack.pop();
+        queue.offer("A");
+        queue.offer("B");
+        queue.offer("D");
+        queue.offer("C");
+        queue.offer("B");
 
-
-        System.out.println(stack);
+        while(!queue.isEmpty()){
+            System.out.println(queue.poll());
+        }
     }
 }
