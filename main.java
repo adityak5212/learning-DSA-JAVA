@@ -1,43 +1,29 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class main{
     public static void main(String[] args){
 
-        LinkedList<Integer> linkedList = new LinkedList<Integer>();
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        // linear search = Iterate through a collection one element at a time
 
-        long startTime;
-        long endTime;
-        long elapsedTime;
+        int[] array = {9,1,8,2,7,3,6,4,5};
 
-        for(int i = 0; i < 1000000; i++){
-            linkedList.add(i);
-            arrayList.add(i);
+        int index = linearSearch(array,5);
+
+        if(index != -1) {
+            System.out.println("Element found at index: " + index);
+
         }
-        // ***************LinkedList********************
-        startTime = System.nanoTime();
+        else {
+            System.out.println("Element not found");
+        }
 
-        linkedList.get(0);
+    }
 
-        endTime =System.nanoTime();
-
-        elapsedTime = endTime - startTime;
-
-        System.out.println("LinkedList:\t" + elapsedTime +"ns");
-
-        // *****************ArrayList***********************
-
-        startTime = System.nanoTime();
-
-        arrayList.get(0);
-
-        endTime =System.nanoTime();
-
-        elapsedTime = endTime - startTime;
-
-        System.out.println("ArrayList:\t" + elapsedTime +"ns");
-
-
+    private static int linearSearch(int[] array, int value) {
+        for(int i = 0; i < array.length; i++){
+            if(array[i] == value){
+                return i;
+            }
+        }
+        return -1;
     }
 }
