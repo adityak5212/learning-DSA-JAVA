@@ -2,22 +2,36 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
 
-        Stack<String> stack = new Stack<String>();
 
-        //Priority Queue = A FIFO data structure that service elements
-        //       with the highest priorities first
-        //        before elements with lower priority
+        LinkedList<String> linkedList = new LinkedList<String>();
 
-        Queue<String> queue = new PriorityQueue<>(Collections.reverseOrder());
+        /*
+        linkedList.push("A");
+        linkedList.push("b");
+        linkedList.push("c");
+        linkedList.push("d");
+        linkedList.push("f");
+        linkedList.pop();
+        */
 
-        queue.offer("A");
-        queue.offer("B");
-        queue.offer("D");
-        queue.offer("C");
-        queue.offer("B");
+        //LinkedList as a Queue
+        linkedList.offer("A");
+        linkedList.offer("B");
+        linkedList.offer("C");
+        linkedList.offer("D");
+        linkedList.offer("F");
+        //linkedList.poll();
 
-        while(!queue.isEmpty()){
-            System.out.println(queue.poll());
-        }
+        linkedList.add(4, "E");
+        linkedList.remove("E");
+
+        System.out.println(linkedList.peekFirst());
+        System.out.println(linkedList.peekLast());
+        linkedList.addFirst("0");
+        linkedList.addLast("G");
+
+
+        System.out.println(linkedList);
+
     }
 }
