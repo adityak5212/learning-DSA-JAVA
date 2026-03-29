@@ -1,29 +1,45 @@
+import java.util.Arrays;
+
+import static java.util.Arrays.binarySearch;
 
 public class main{
     public static void main(String[] args){
 
-        // linear search = Iterate through a collection one element at a time
+        // binary search algorithm that find th position of a target value within a
+        // sorted array. half of the array is eliminated during each step
 
-        int[] array = {9,1,8,2,7,3,6,4,5};
+        int array[] = new int[9000];
+        int target = 7000;
 
-        int index = linearSearch(array,5);
+        for(int i = 0; i < array.length; i++) {
+            array[i] = i;
+        }
+        //int index = Arrays.binarySearch(array,target);
+        int index = binarySearch(array,target);
 
-        if(index != -1) {
-            System.out.println("Element found at index: " + index);
-
+        if(index == -1) {
+            System.out.println(target + "not found");
         }
         else {
-            System.out.println("Element not found");
+            System.out.println("Element found at: " + index);
         }
-
     }
+    private static int binarySearch(int[] array, int target) {
 
-    private static int linearSearch(int[] array, int value) {
-        for(int i = 0; i < array.length; i++){
-            if(array[i] == value){
-                return i;
-            }
+        int low = 0;
+        int high = array.length - 1;
+
+        while(low <= high) {
+            int middle = low + (high - low) / 2;
+            int value = array[middle];
+
+            System.out.println("middle: " + value);
+            if(value < target) low = middle + 1;
+            else if(value > target) high = middle -1;
+            else return middle; // target found
         }
-        return -1;
+        return -1; //target not found
+
     }
 }
+
